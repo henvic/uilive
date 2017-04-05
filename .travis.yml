@@ -3,5 +3,5 @@ sudo: false
 install:
   - go get ./...
 go:
-  - 1.4
+  - 1.8
   - tip
