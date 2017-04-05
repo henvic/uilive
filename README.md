@@ -2,7 +2,7 @@
 
 uilive is a go library for updating terminal output in realtime. It provides a buffered [io.Writer](https://golang.org/pkg/io/#Writer) that you can flush when it is time.
 
-**This is an API-incompatible modified fork** that removes the timed interval ticker, so that you have full control of flushing lines to terminal.
+**This is an API-incompatible modified fork** ([original](https://github.com/gosuri/uilive)) that removes the timed interval ticker, so that you have full control of flushing lines to terminal.
 
 ## Usage Example
 
