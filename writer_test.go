@@ -10,14 +10,13 @@ func TestWriter(t *testing.T) {
 	w := New()
 	b := &bytes.Buffer{}
 	w.Out = b
-	w.Start()
-	for i := 0; i < 2; i++ {
-		fmt.Fprintln(w, "foo")
+	for i := 0; i <= 3; i++ {
+		fmt.Fprintf(w, "foo %d\n", i)
+		w.Flush()
 	}
-	w.Stop()
 	fmt.Fprintln(b, "bar")
 
-	want := "foo\nfoo\nbar\n"
+	want := "foo 0\n\x1b[0A\x1b[2K\rfoo 1\n\x1b[0A\x1b[2K\rfoo 2\n\x1b[0A\x1b[2K\rfoo 3\nbar\n"
 	if b.String() != want {
 		t.Fatalf("want %q, got %q", want, b.String())
 	}
