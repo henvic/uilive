@@ -16,7 +16,7 @@ func TestWriter(t *testing.T) {
 	}
 	fmt.Fprintln(b, "bar")
 
-	want := "foo 0\n\x1b[0A\x1b[2K\rfoo 1\n\x1b[0A\x1b[2K\rfoo 2\n\x1b[0A\x1b[2K\rfoo 3\nbar\n"
+	want := "foo 0\n\x1b[1A\x1b[2Kfoo 1\n\x1b[1A\x1b[2Kfoo 2\n\x1b[1A\x1b[2Kfoo 3\nbar\n"
 	if b.String() != want {
 		t.Fatalf("want %q, got %q", want, b.String())
 	}
